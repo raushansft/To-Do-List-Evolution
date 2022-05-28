@@ -34,23 +34,74 @@ async function fetchData(url){
 function displayData(data){
 
     let card=document.createElement("div");
+    card.id="card";
 
     let title=document.createElement("p");
     title.textContent=data.title;
+   
+    if(data.status){
+        title.color="red";
+        
+    }
     
     let status=document.createElement("input");
     status.type = "checkbox";
     status.checked =data.status;
 
     let editbtn=document.createElement("button");
-    // editbtn.textContent="Edit"
-    // editbtn.setAttribute("onclick"," function(){
-    // //     localStorage.setItem("todoitem",JSON.stringify(data));
-    // //     location.href="https://google.com";
-    // //     // console.log(data);
-    // }");
+    editbtn.textContent="Edit";
+    editbtn.onclick= function (){
+        console.log(data);
+        localStorage.setItem("todo",JSON.stringify(data));
+        window.location.href="edit.html";
+    }
 
-    card.append(title,status);
+    let deletebtn=document.createElement("button");
+    deletebtn.textContent="Delete";
+    deletebtn.onclick= function (){
+      // make a delete request
+
+    }
+
+    card.append(title,status,editbtn,deletebtn);
     document.querySelector("#container").append(card);
 
+}
+
+// function add item
+
+function addItem (){
+
+    console.log("Hello");
+    let title=document.createElement("input");
+    title.id="title-item";
+
+    let status=document.createElement("input");
+    status.type="checkbox";
+    status.id="status-item";
+
+    let add=document.createElement("button");
+    add.textContent="Add Item";
+    add.id="add";
+    add.onclick=function(){
+
+
+    //     fetch(`http://localhost:3000/task`, {
+     
+    // // Adding method type
+    // method: "POST",
+     
+    // // Adding body or contents to send
+    // body: JSON.stringify({
+    //     "title": "foo",
+    //     "status" :"false"
+    // })
+
+
+        
+
+
+    
+}
+    document.querySelector("#item-add").append(title,status,add);
 }
