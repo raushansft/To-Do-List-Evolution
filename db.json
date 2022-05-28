@@ -31,11 +31,6 @@
       "status": "true"
     },
     {
-      "id": 7,
-      "title": "go to visit",
-      "status": "true"
-    },
-    {
       "id": 8,
       "title": "travel ",
       "status": "false"
@@ -71,11 +66,6 @@
       "status": "false"
     },
     {
-      "id": 15,
-      "title": "home work",
-      "status": "true"
-    },
-    {
       "id": 16,
       "title": "go to market",
       "status": "true"
@@ -104,19 +94,6 @@
       "id": 21,
       "title": "going to play",
       "status": "true"
-    },
-    {
-      "id": 22,
-      "title": "make food",
-      "status": "true"
-    },
-    {
-      "id": 35,
-      "title": null,
-      "status": "true"
-    },
-    {
-      "id": 36
     }
   ]
 }

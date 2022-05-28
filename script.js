@@ -50,18 +50,38 @@ function displayData(data){
 
     let editbtn=document.createElement("button");
     editbtn.textContent="Edit";
-    editbtn.onclick= function (){
-        console.log(data);
-        localStorage.setItem("todo",JSON.stringify(data));
-        window.location.href="edit.html";
-    }
+    editbtn.onclick= async function(){
+        try {
+            let data= await fetch(`http://localhost:3000/task/${data.id}`);
+            let tempdata=data.json();
+         //    console.log(tempdata);
+         localStorage.setItem("tempData",JSON.stringify(tempdata));
+
+        
+            
+        } catch (error) {
+            console.log(error, "UPDATE Error");
+        }
+
+        alert("Update Sucessfull")
+     }
+     //udtae
 
     let deletebtn=document.createElement("button");
     deletebtn.textContent="Delete";
-    deletebtn.onclick= function (){
-      // make a delete request
+    deletebtn.onclick=async function(){
+        try {
+         let res=await fetch(`http://localhost:3000/task/${data.id}`,{
+             method:"delete"
+         });
+         // updateDom();
+            
+        } catch (error) {
+            console.log(error, "Delete Error");
+        }
 
-    }
+        alert("Delete Sucessfull")
+     }
 
     card.append(title,status,editbtn,deletebtn);
     document.querySelector("#container").append(card);
